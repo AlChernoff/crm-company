@@ -1,0 +1,74 @@
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon">
+</app-page-header>
+
+<div class="row">
+  <div class="col-3">
+    <label class="sr-only" for="searchFirstName">First Name</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="fas fa-search"></i></div>
+      </div>
+      <input (keyup)="onSearch('firstName')" [(ngModel)]="firstName" name="searchFirstName" type="text" class="form-control" id="searchFirstName"
+        placeholder="First Name">
+    </div>
+  </div>
+  <div class="col-3">
+    <label class="sr-only" for="searchFirstName">Last Name</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="fas fa-search"></i></div>
+      </div>
+      <input (keyup)="onSearch('lastName')" [(ngModel)]="lastName" name="searchLastName" type="text" class="form-control" id="searchLastName"
+        placeholder="Last Name">
+    </div>
+  </div>
+  <div class="col-3">
+    <label class="sr-only" for="searchPhone">Phone</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="fas fa-search"></i></div>
+      </div>
+      <input (keyup)="onSearch('phone')" [(ngModel)]="phone" name="searchPhone" type="text" class="form-control" id="searchPhone"
+        placeholder="Phone">
+    </div>
+  </div>
+  <div class="co-3">
+    <a class="btn btn-primary" routerLink="/customer/new" href=""><i class="fas fa-plus-circle"></i> Add Customer</a>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-12">
+    <table *ngIf="customers; else noCustomers" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>phone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr (mouseenter)="showOnHover($event)" (mouseleave)="hideOnLeave($event)" *ngFor="let customer of customers; let x = index">
+          <td>
+            {{ x + 1 }}
+            <span class="ml-3 invisible">
+              <a class="text-secondary" href="" routerLink="/customer/{{ customer.id }}"><i class="fas fa-eye"></i></a>
+              <a class="text-secondary ml-3" href="" routerLink="/customer/{{ customer.id }}/edit"><i class="fas fa-pen"></i></a>
+              <a (click)="onDeleteCustomer(customer.id, $event)" class="text-secondary ml-3" href=""><i class="fas fa-trash-alt"></i></a>
+            </span>
+          </td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noCustomers>
+      <p>No customers in the list</p>
+    </ng-template>
+  </div>
+</div>

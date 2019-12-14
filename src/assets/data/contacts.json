@@ -1,0 +1,40 @@
+[
+   {
+    "name":"Moshe Levi",
+    "email":"mlevi@gmail.com",
+    "birthday":"2000-01-14 00:00:00",
+    "phones": [
+        "053-456-789",
+        "052-145-632",
+        "026-654-201"
+    ],
+    "avatar": "moshe.png"
+   } ,
+   {
+    "name":"Avi Cohen",
+    "email":"acohen@gmail.com",
+    "birthday":"1998-07-26 00:00:00",
+    "phones": [
+        "050-225-987"
+    ],
+    "avatar": "avi.png"
+   } ,
+   {
+    "name":"Shimi Israeli",
+    "email":"sisraeli@yahoo.com",
+    "birthday":"2006-10-03 00:00:00",
+    "avatar": "shimi.png"
+   } ,
+   {
+    "name":"Haim Bitun",
+    "email":"vbitun@gmail.com",
+    "birthday":"2003-10-12 00:00:00",
+    "phones": [
+        "025-548-796",
+        "054-669-852",
+        "037-757-996"
+    ],
+    "avatar": "haim.png"
+   } 
+
+]
