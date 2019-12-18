@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { CustomersService } from '../../services/customers.service';
-import { Customer } from '../../models/customer';
-import { FlashMessagesService } from 'angular2-flash-messages'
+import { Customer } from '../../models/Customer';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-customers',
@@ -21,7 +21,7 @@ export class CustomersComponent implements OnInit {
 
   constructor(
     private cs: CustomersService,
-    private FlashMessagesService: FlashMessagesService
+    private fms: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -42,9 +42,8 @@ export class CustomersComponent implements OnInit {
   onDeleteCustomer(customerId, event) {
     event.preventDefault();
     if (confirm('Are you sure?')) {
-      this.FlashMessagesService.show('Customer deleted', {
-        cssClass: 'fixed-bottom m-auto bg-success w-50 text-white text-center',
-        timeout: 3000
+      this.fms.show('Customer deleted', {
+        cssClass: 'fixed-top m-auto bg-success w-50 text-white text-center', timeout: 3000
       });
       this.cs.deleteCustomer(customerId);
     }

@@ -1,55 +1,77 @@
-<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon"></app-page-header>
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon">
+</app-page-header>
 
 <div class="row">
-    <div class="col-12">
-        <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)" novalidate autocomplete="off">
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <label for="firstName"><span class="text-danger">*</span> First Name: </label>
-                    <input [ngClass]="{'is-invalid': cfn.errors && cfn.touched}" #cfn="ngModel" [(ngModel)]="firstName" type="text" name="firstName" id="firstName" class="form-control" required minlength="2">
-                    <div [hidden]="!cfn.errors?.required" class="invalid-feedback">First Name is required</div>
-                    <div [hidden]="!cfn.errors?.minlength" class="invalid-feedback">First Name must be minimum  2 chars</div>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="lastName"><span class="text-danger">*</span> Last Name: </label>
-                    <input [ngClass]="{'is-invalid': cln.errors && cln.touched}" #cln="ngModel" [(ngModel)]="lastName" type="text" name="lastName" id="lastName" class="form-control" required minlength="2">
-                    <div [hidden]="!cln.errors?.required" class="invalid-feedback">Last Name is required</div>
-                    <div [hidden]="!cln.errors?.minlength" class="invalid-feedback">Last Name must be minimum  2 chars</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <label for="customerEmail"><span class="text-danger">*</span> Email: </label>
-                    <input [ngClass]="{'is-invalid': ce.errors && ce.touched}" #ce="ngModel" [(ngModel)]="email" type="email" name="email" id="customerEmail" class="form-control" required email>
-                    <div [hidden]="!ce.errors?.required" class="invalid-feedback">Email is required</div>
-                    <div [hidden]="!ce.errors?.email" class="invalid-feedback">A valid email is required</div>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="customerPhone"><span class="text-danger">*</span> Phone: </label>
-                    <input [ngClass]="{'is-invalid': cp.errors && cp.touched}" #cp="ngModel" [(ngModel)]="phone" type="tel" name="phone" id="customerPhone" class="form-control" required pattern="^0[2-9]\d{7,8}$">
-                    <div [hidden]="!cp.errors?.required" class="invalid-feedback">Phone is required</div>
-                    <div [hidden]="!cp.errors?.pattern" class="invalid-feedback">A valid phone is required</div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-8 mb-3">
-                    <label for="customerAddress"> Address: </label>
-                    <input [(ngModel)]="address" type="text" name="address" id="customerAddress" class="form-control">
-                </div>
-            </div>
+  <div class="col-12">
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)" novalidate="novalidate" autocomplete="off">
 
-            <div class="row">
-                <div class="col-8 mb-3">
-                    <label for="customerNotes"> Notes: </label>
-                    <textarea [(ngModel)]="notes" class="form-control" name="notes" id="customerNotes" cols="30" rows="10"></textarea>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="firstName"><span class="text-danger">*</span> First name</label>
+          <input [ngClass]="{'is-invalid':fnf.errors && fnf.touched}" required minlength="2" #fnf="ngModel" [(ngModel)]="firstName"
+            name="firstName" type="text" class="form-control" id="firstName">
+          <div [hidden]="!fnf.errors?.required" class="invalid-feedback">
+            First name is required
+          </div>
+          <div [hidden]="!fnf.errors?.minlength" class="invalid-feedback">
+            First name minlength must be 2 chars
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="lastName"><span class="text-danger">*</span> Last name</label>
+          <input [ngClass]="{'is-invalid':lnf.errors && lnf.touched}" required minlength="2" #lnf="ngModel" [(ngModel)]="lastName"
+            name="lastName" type="text" class="form-control" id="lastName">
+          <div [hidden]="!lnf.errors?.required" class="invalid-feedback">
+            Last name is required
+          </div>
+          <div [hidden]="!lnf.errors?.minlength" class="invalid-feedback">
+            Last name minlength must be 2 chars
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="customerEmail"><span class="text-danger">*</span> Email</label>
+          <input type="email" id="customerEmail" class="form-control" name="email" #ef="ngModel" [(ngModel)]="email"
+            [ngClass]="{'is-invalid':ef.errors && ef.touched}" required email>
+          <div [hidden]="!ef.errors?.required" class="invalid-feedback">
+            Valid email is required
+          </div>
+          <div [hidden]="!ef.errors?.email" class="invalid-feedback">
+            Valid email is required
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="customerPhone"><span class="text-danger">*</span> Phone</label>
+          <input type="tel" id="customerPhone" class="form-control" name="phone" #pf="ngModel" [(ngModel)]="phone"
+            [ngClass]="{'is-invalid':pf.errors && pf.touched}" required pattern="^0[2-9]\d{7,8}$">
+          <div [hidden]="!pf.errors?.required" class="invalid-feedback">
+            Phone is required
+          </div>
+          <div [hidden]="!pf.errors?.pattern" class="invalid-feedback">
+            A valid phone number is required
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <label for="customerAddress">Address</label>
+          <textarea [(ngModel)]="address" class="form-control" #search name="address" id="customerAddress" cols="30"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <label for="customerNotes">Notes</label>
+          <textarea class="form-control" name="notes" id="customerNotes" #nf="ngModel" [(ngModel)]="notes" cols="30"
+            rows="10"></textarea>
+        </div>
+      </div>
+      <div class="fixed-bottom bg-light p-3 text-center">
+        <a class="btn btn-secondary" href="" routerLink="/customers">Cancel</a>
+        <input [disabled]="!customerForm.form.valid" class="btn btn-primary ml-3" name="submit" type="submit" value="Save">
+      </div>
+    </form>
+  </div>
 
-            <div class="fixed-bottom bg-light p-3 text-center">
-                <a href="" [routerLink]="['/customers']" routerLinkActive="router-link-active" class="btn btn-secondary">Cancel</a>
-                <input [disabled]="!customerForm.form.valid" type="submit" value="Save" class="btn btn-primary ml-3" name="submit">
-            </div>
-        </form>
-    </div>
 </div>

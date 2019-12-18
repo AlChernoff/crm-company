@@ -9,13 +9,14 @@ export class PageHeaderComponent implements OnInit {
 
   @Input()
   headerTitle: string;
+
   @Input()
   headerIcon: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.headerIcon = this.headerIcon ? this.headerIcon : 'fas fa-angle-double-up'
+    this.headerIcon = this.headerIcon ? this.headerIcon : 'fas fa-angle-double-up';
   }
 
 }

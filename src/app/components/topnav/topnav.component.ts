@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topnav',
@@ -8,15 +10,26 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TopnavComponent implements OnInit {
 
   @Input()
-  userEmail: string;
+  isLoggedin: boolean;
 
   @Input()
-  isloggedIn: boolean;
+  userEmail: string;
 
-  constructor() { }
+  constructor(
+    private as: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
 
+  onLoggedOut(event) {
+    event.preventDefault();
+    this.isLoggedin = false;
+    this.as.logout();
+    window.location.reload();
+    // not good: "Missing or insufficient permissions." error
+    // this.router.navigate(['/login']);
   }
 
 }

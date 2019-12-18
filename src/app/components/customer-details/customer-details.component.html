@@ -1,44 +1,44 @@
-<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon"></app-page-header>
+<app-page-header [headerTitle]="headerTitle" [headerIcon]="headerIcon">
+</app-page-header>
 
 <div class="row">
   <div class="col-12">
-          <div class="row">
-              <div class="col-md-4 mb-3">
-                  <label for="firstName"> First Name: </label>
-                  <input disabled value="{{customer.firstName}}" type="text" name="firstName" id="firstName" class="form-control" >
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label for="lastName"> Last Name: </label>
-                  <input disabled value="{{ customer.lastName }}" type="text" name="lastName" id="lastName" class="form-control" >
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-4 mb-3">
-                  <label for="customerEmail">Email: </label>
-                  <input disabled value="{{ customer.email }}" type="email" name="email" id="customerEmail" class="form-control" >
-              </div>
-              <div class="col-md-4 mb-3">
-                  <label for="customerPhone"> Phone: </label>
-                  <input disabled value="{{ customer.phone }}" type="tel" name="phone" id="customerPhone" class="form-control">
-              </div>
-          </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="firstName">First name</label>
+        <input disabled value="{{ customer.firstName }}" name="firstName" type="text" class="form-control" id="firstName">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="lastName">Last name</label>
+        <input disabled value="{{ customer.lastName }}" name="lastName" type="text" class="form-control" id="lastName">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="customerEmail">Email</label>
+        <input disabled value="{{ customer.email }}" type="email" id="customerEmail" class="form-control" name="email">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="customerPhone">Phone</label>
+        <input disabled value="{{ customer.phone }}" type="tel" id="customerPhone" class="form-control" name="phone">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <label for="customerAddress">Address</label>
+        <input disabled value="{{ customer.address }}" type="text" id="customerAddress" class="form-control" name="address">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <label for="customerNotes">Notes</label>
+        <textarea disabled class="form-control" name="notes" id="customerNotes" cols="30" rows="10">{{ customer.notes }}</textarea>
+      </div>
+    </div>
+    <div class="fixed-bottom bg-light p-3 text-center">
+      <a class="btn btn-secondary" href="" routerLink="/customers">Back</a>
+    </div>
 
-          <div class="row">
-              <div class="col-md-8 mb-3">
-                  <label for="customerAddress"> Address: </label>
-                  <input disabled value="{{ customer.address }}" type="text" name="address" id="customerAddress" class="form-control">
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-md-8 mb-3">
-                  <label for="customerNotes"> Notes: </label>
-                  <textarea disabled  class="form-control" name="notes" id="customerNotes" cols="30" rows="10">{{ customer.notes }}</textarea>
-              </div>
-          </div>
-
-          <div class="fixed-bottom bg-light p-3 text-center">
-              <a href="" routerLink="/customers" class="btn btn-secondary">Back</a>
-          </div>
   </div>
+
 </div>

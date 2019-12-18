@@ -8,14 +8,16 @@ import { NewCustomerComponent } from './components/new-customer/new-customer.com
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { EditCustomerComponent } from './components/edit-customer/edit-customer.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'customers', pathMatch: 'full' },
   { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
   { path: 'customer/new', component: NewCustomerComponent, canActivate: [AuthGuard] },
-  { path: 'customer/:id', component: CustomerDetailsComponent, canActivate: [AuthGuard]},
-  { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard]},
+  { path: 'customer/:id', component: CustomerDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'customer/:id/edit', component: EditCustomerComponent, canActivate: [AuthGuard] },
   { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

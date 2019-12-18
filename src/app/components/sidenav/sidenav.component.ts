@@ -7,10 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-
   @Input()
-  isloggedIn: boolean;
-
+  isLoggedin: boolean;
 
   constructor() { }
 

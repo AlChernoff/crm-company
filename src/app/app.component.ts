@@ -6,22 +6,22 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  
-  isloggedIn: boolean = false;
+export class AppComponent implements OnInit {
+
+  isLoggedin: boolean = false;
   userEmail: string;
 
   constructor(
+    private as: AuthService
+  ) { }
 
-    private authServcei: AuthService
-  ){}
+  ngOnInit() {
+    this.as.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isLoggedin = true;
+        this.userEmail = auth.email;
+      }
+    });
+  }
 
-    ngOnInit(){
-      this.authServcei.getAuth().subscribe( auth => {
-        if(auth){
-          this.isloggedIn = true;
-          this.userEmail = auth.email;
-        }
-      })
-    }
 }
